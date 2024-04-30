@@ -17,5 +17,5 @@ jobs:
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
-          text: "I am on branch ${{github.base_ref}}"
+          text: "I am on branch ${{github.ref_name}}"
           color: cyan
