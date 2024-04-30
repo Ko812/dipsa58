@@ -15,7 +15,7 @@ jobs:
       - name: echo the date
         run: echo "hello, Github Action $(date)"
       - name: echo the git branch
-        use: mscoutermarsh/cowsays-action@master
+        uses: mscoutermarsh/cowsays-action@master
         with:
           text: "I am on branch ${{github.base_ref}}"
           color: cyan
