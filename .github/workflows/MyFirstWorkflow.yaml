@@ -14,6 +14,7 @@ jobs:
     steps:
       - name: Trivy Action
         uses: lazy-actions/gitrivy@v3
+	token: {{secrets.GH_TOKEN}}
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
