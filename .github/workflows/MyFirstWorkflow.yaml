@@ -27,6 +27,11 @@ jobs:
           name: trivy-sbom-report
           path: '${{ github.workspace }}/dependency-results.sbom.json'
           retention-days: 2 # 90 is the default
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dependency-results.sbom.json
+          path: /users/user/desktop
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:

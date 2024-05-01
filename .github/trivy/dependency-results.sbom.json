@@ -1,0 +1,15 @@
+{
+  "version": 0,
+  "detector": {
+    "name": "trivy",
+    "version": "0.50.2",
+    "url": "https://github.com/aquasecurity/trivy"
+  },
+  "ref": "refs/heads/master",
+  "sha": "278320c57463b73e2baf6f2a53b176d7b95b0655",
+  "job": {
+    "correlator": "My First Workflow_my-first-job",
+    "id": "8907727233"
+  },
+  "scanned": "2024-05-01T09:27:00Z"
+}
