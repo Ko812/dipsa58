@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trivy-sbom-report
-          path: '${{ github.repositoryUrl }}/dependency-results.sbom.json'
+          path: '${{ github.workspace }}/dependency-results.sbom.json'
           retention-days: 2 # 90 is the default
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
