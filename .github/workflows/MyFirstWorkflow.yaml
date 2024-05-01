@@ -30,7 +30,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: dependency-results.sbom.json
+          name: trivy-sbom-report
           path: /users/user/desktop
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
