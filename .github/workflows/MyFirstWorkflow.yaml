@@ -21,17 +21,6 @@ jobs:
           github-pat: ${{secrets.GH_TOKEN}}
           output: 'dependency-results.sbom.json'
           severity: 'LOW'
-      - name: Upload trivy report as a Github artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: trivy-sbom-report
-          path: '${{ github.workspace }}/dependency-results.sbom.json'
-          retention-days: 2 # 90 is the default
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: trivy-sbom-report
-          path: /users/user/desktop
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
