@@ -21,6 +21,10 @@ jobs:
           github-pat: ${{secrets.GH_TOKEN}}
           output: 'dependency-results.sbom.json'
           severity: 'LOW'
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: trivy-sbom-report
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
