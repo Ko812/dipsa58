@@ -13,7 +13,7 @@ jobs:
     # steps in this job
     steps:
       - name: echo the date
-        run: echo "hello, Github Action ${{date}}. My secret is ${{ secrets.MY_API_KEY }}"
+        run: echo "hello, Github Action ${{github.date}}. My secret is ${{ secrets.MY_API_KEY }}"
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
