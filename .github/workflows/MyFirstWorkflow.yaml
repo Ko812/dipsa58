@@ -17,7 +17,7 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-	  config: 'trivy.yml'
+	  trivy-config: trivy.yaml
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
