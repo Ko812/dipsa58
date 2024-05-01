@@ -12,9 +12,12 @@ jobs:
 
     # steps in this job
     steps:
-      - name: Trivy Action
-        uses: lazy-actions/gitrivy@v3
-	token: "${{secrets.GH_TOKEN}}"
+      - name: Run Trivy vulnerability scanner in fs mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+	  token: "${{secrets.GH_TOKEN}}"
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
