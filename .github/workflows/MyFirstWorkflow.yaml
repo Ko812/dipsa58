@@ -23,7 +23,9 @@ jobs:
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v2
         with:
+          checkout_path: https://github.com/ko812/dipsa58
           sarif_file: 'trivy-results.sarif'
+          token: "${{secrets.GH_TOKEN}}"
       - name: echo the git branch
         uses: mscoutermarsh/cowsays-action@master
         with:
