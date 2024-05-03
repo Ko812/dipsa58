@@ -76,7 +76,7 @@ jobs:
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": "*Commit*\n${{github.event.head_commit.}}"
+                                "text": "*Commit*\n${{github.event.head_commit}}"
                             }
                         ]
                     },
