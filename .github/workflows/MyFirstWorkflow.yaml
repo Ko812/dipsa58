@@ -106,4 +106,4 @@ jobs:
                 ]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.MYTUNNEL }}
+          SLACK_BOT_TOKEN: ${{ secrets.TUNNELBOTTOKEN }}
