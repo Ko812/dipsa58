@@ -14,46 +14,39 @@ jobs:
     permissions: write-all
     # steps in this job
     steps:
-      # - name: Run Trivy vulnerability scanner in fs mode
-        # uses: aquasecurity/trivy-action@master
-        # with:
-          # scan-type: 'repo'
-          # ignore-unfixed: true
-          # format: 'github'
-          # github-pat: ${{secrets.GH_TOKEN}}
-          # output: 'dependency-results.sbom.json'
-          # severity: 'LOW'
-      # - name: Upload trivy report as a Github artifact
-        # uses: actions/upload-artifact@v4
-        # with:
-          # name: trivy-sbom-report
-          # path: '${{ github.workspace }}/dependency-results.sbom.json'
-          # retention-days: 2 # 90 is the default
-      # - name: Download artifact
-        # uses: actions/download-artifact@v4
-        # with:
-          # name: trivy-sbom-report
-      # - name: echo the git branch
-        # uses: mscoutermarsh/cowsays-action@master
-        # with:
-          # text: "I am on branch ${{github.workspace}}"
-          # color: cyan
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run Trivy vulnerability scanner in fs mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'txt'
+          output: 'trivy-report.txt'
+          severity: 'HIGH'
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUBUSERNAME }}
+          password: ${{ secrets.DOCKERHUBACCESSTOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: user/app:latest
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
             {
-                "text": "GitHub Action build result",
+                "text": "Push commit triggered workflow",
                 "blocks": [
-                    {
-                        "type": "header",
-                        "text": {
-                            "type": "plain_text",
-                            "text": "New request",
-                            "emoji": true
-                        }
-                    },
                     {
                         "type": "section",
                         "fields": [
@@ -63,7 +56,7 @@ jobs:
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": "*Event*\n${{github.event}}"
+                                "text": "*Event*\n${{github.sha}}"
                             }
                         ]
                     },
