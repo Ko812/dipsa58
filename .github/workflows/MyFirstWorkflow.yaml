@@ -42,8 +42,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
-          # This data can be any valid JSON from a previous step in the GitHub Action
-          channel-id: 'mytunnel'
           payload: |
             {
                 "text": "GitHub Action build result",
@@ -106,4 +104,5 @@ jobs:
                 ]
             }
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.TUNNELBOTTOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.MYTUNNEL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
