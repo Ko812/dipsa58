@@ -45,7 +45,16 @@ jobs:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "text": "GitHub Action build result"
+              "text": "https://github.com/ko812",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result"
+                  }
+                }
+              ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.testSubmission }}
