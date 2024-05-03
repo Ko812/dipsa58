@@ -45,8 +45,6 @@ jobs:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "channel": "mytunnel",
-              "text": "New Paid Time Off request from Fred Enriquez",
               "blocks": [
                 {
                   "type": "header",
