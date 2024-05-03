@@ -2,7 +2,9 @@ name: My First Workflow
 
 # trigger
 on:
-  - push
+  push:
+    branches:
+      - 'release/v#.#'
 
 jobs:
   # name of your job
