@@ -59,11 +59,11 @@ jobs:
                         "fields": [
                             {
                                 "type": "mrkdwn",
-                                "text": "*Type:*\nPaid Time Off"
+                                "text": "*Ref*\n${{github.ref}}"
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": "*Created by:*\n<example.com|Fred Enriquez>"
+                                "text": "*Event*\n${{github.event.head_commit}}"
                             }
                         ]
                     },
@@ -72,32 +72,65 @@ jobs:
                         "fields": [
                             {
                                 "type": "mrkdwn",
-                                "text": "*When:*\nAug 10 - Aug 13"
+                                "text": "*Actions URL*\nBuild and Push"
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Commit*\n${{github.event.head_commit.}}"
                             }
                         ]
                     },
                     {
-                        "type": "actions",
-                        "elements": [
+                        "type": "section",
+                        "fields": [
                             {
-                                "type": "button",
-                                "text": {
-                                    "type": "plain_text",
-                                    "emoji": true,
-                                    "text": "Approve"
-                                },
-                                "style": "primary",
-                                "value": "click_me_123"
-                            },
+                                "type": "mrkdwn",
+                                "text": "*Image build and signed*"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
                             {
-                                "type": "button",
-                                "text": {
-                                    "type": "plain_text",
-                                    "emoji": true,
-                                    "text": "Reject"
-                                },
-                                "style": "danger",
-                                "value": "click_me_123"
+                                "type": "mrkdwn",
+                                "text": "*Name:* Kevin Oh"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Matriculation:* A0023945E"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Email:* ohsl265@gmail.com"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Git:* https://github.com/ko812/go-fortune"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Image:* https://hub.docker/repository/docker/ko812/go-fortune"
                             }
                         ]
                     }
