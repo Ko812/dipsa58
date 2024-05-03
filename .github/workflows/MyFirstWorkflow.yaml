@@ -40,9 +40,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: /home/runner/work/dipsa58/dipsa58/release/v0.2
           push: true
-          tags: user/app:latest
+          tags: kevin812/dipsa58:latest
       - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
